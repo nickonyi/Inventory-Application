@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Elden Ring",
+    "released": 2022,
+    "genre": "RPG",
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco",
+    "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
+    "image": "elden-ring.jpg"
+  },
+  {
+    "title": "The Witcher 3",
+    "released": 2015,
+    "genre": "RPG",
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "platforms": ["PC", "PlayStation 4", "Xbox One"],
+    "image": "witcher-3.jpg"
+  },
+  {
+    "title": "God of War",
+    "released": 2018,
+    "genre": "Action",
+    "developer": "Santa Monica Studio",
+    "publisher": "Sony Interactive Entertainment",
+    "platforms": ["PlayStation 4", "PC"],
+    "image": "god-of-war.jpg"
+  },
+  {
+    "title": "Devil May Cry 5",
+    "released": 2019,
+    "genre": "Action",
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "platforms": ["PC", "PlayStation 4", "Xbox One"],
+    "image": "dmc5.jpg"
+  },
+  {
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "released": 2017,
+    "genre": "Adventure",
+    "developer": "Nintendo",
+    "publisher": "Nintendo",
+    "platforms": ["Nintendo Switch"],
+    "image": "zelda-botw.jpg"
+  },
+  {
+    "title": "Red Dead Redemption 2",
+    "released": 2018,
+    "genre": "Adventure",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "platforms": ["PC", "PlayStation 4", "Xbox One"],
+    "image": "rdr2.jpg"
+  },
+  {
+    "title": "Civilization VI",
+    "released": 2016,
+    "genre": "Strategy",
+    "developer": "Firaxis Games",
+    "publisher": "2K",
+    "platforms": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
+    "image": "civ6.jpg"
+  },
+  {
+    "title": "StarCraft II",
+    "released": 2010,
+    "genre": "Strategy",
+    "developer": "Blizzard Entertainment",
+    "publisher": "Blizzard Entertainment",
+    "platforms": ["PC"],
+    "image": "starcraft2.jpg"
+  },
+  {
+    "title": "The Sims 4",
+    "released": 2014,
+    "genre": "Simulation",
+    "developer": "Maxis",
+    "publisher": "Electronic Arts",
+    "platforms": ["PC", "PlayStation 4", "Xbox One"],
+    "image": "sims4.jpg"
+  },
+  {
+    "title": "Microsoft Flight Simulator",
+    "released": 2020,
+    "genre": "Simulation",
+    "developer": "Asobo Studio",
+    "publisher": "Xbox Game Studios",
+    "platforms": ["PC", "Xbox Series X"],
+    "image": "flight-simulator.jpg"
+  },
+  {
+    "title": "FIFA 23",
+    "released": 2022,
+    "genre": "Sports",
+    "developer": "EA Sports",
+    "publisher": "Electronic Arts",
+    "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
+    "image": "fifa23.jpg"
+  },
+  {
+    "title": "NBA 2K24",
+    "released": 2023,
+    "genre": "Sports",
+    "developer": "Visual Concepts",
+    "publisher": "2K",
+    "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
+    "image": "nba2k24.jpg"
+  },
+  {
+    "title": "Forza Horizon 5",
+    "released": 2021,
+    "genre": "Racing",
+    "developer": "Playground Games",
+    "publisher": "Xbox Game Studios",
+    "platforms": ["PC", "Xbox Series X"],
+    "image": "forza5.jpg"
+  },
+  {
+    "title": "Gran Turismo 7",
+    "released": 2022,
+    "genre": "Racing",
+    "developer": "Polyphony Digital",
+    "publisher": "Sony Interactive Entertainment",
+    "platforms": ["PlayStation 5"],
+    "image": "gt7.jpg"
+  },
+  {
+    "title": "Portal 2",
+    "released": 2011,
+    "genre": "Puzzle",
+    "developer": "Valve",
+    "publisher": "Valve",
+    "platforms": ["PC", "PlayStation 3", "Xbox 360"],
+    "image": "portal2.jpg"
+  },
+  {
+    "title": "Tetris Effect",
+    "released": 2018,
+    "genre": "Puzzle",
+    "developer": "Resonair",
+    "publisher": "Enhance",
+    "platforms": ["PC", "PlayStation 4", "Xbox One"],
+    "image": "tetris-effect.jpg"
+  },
+  {
+    "title": "Resident Evil 4 Remake",
+    "released": 2023,
+    "genre": "Horror",
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
+    "image": "re4-remake.jpg"
+  },
+  {
+    "title": "Silent Hill 2",
+    "released": 2001,
+    "genre": "Horror",
+    "developer": "Konami",
+    "publisher": "Konami",
+    "platforms": ["PlayStation 2"],
+    "image": "silent-hill-2.jpg"
+  },
+  {
+    "title": "Call of Duty: Modern Warfare II",
+    "released": 2022,
+    "genre": "Shooter",
+    "developer": "Infinity Ward",
+    "publisher": "Activision",
+    "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
+    "image": "mw2.jpg"
+  },
+  {
+    "title": "DOOM Eternal",
+    "released": 2020,
+    "genre": "Shooter",
+    "developer": "id Software",
+    "publisher": "Bethesda",
+    "platforms": ["PC", "PlayStation 4", "Xbox One"],
+    "image": "doom-eternal.jpg"
+  }
+]

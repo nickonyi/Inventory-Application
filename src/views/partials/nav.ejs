@@ -1,0 +1,124 @@
+<nav class="sticky top-0 z-50 border-b border-gray-700 bg-gray-800">
+  <div class="mx-auto w-full max-w-[1366px] px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 max-h-32 items-center justify-between gap-6">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="flex items-center space-x-2">
+          <i class="fas fa-dice text-2xl"></i>
+          <span class="text-xl font-bold text-white">Games&nbsp;Inventory</span>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden items-center md:flex lg:gap-4">
+        <a
+          href="/games"
+          class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white"
+        >
+          <i class="fas fa-chess-knight mr-2"></i>
+          Games
+        </a>
+        <a
+          href="/genres"
+          class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white"
+        >
+          <i class="fas fa-tags mr-2"></i>
+          Genres
+        </a>
+        <a
+          href="/platforms"
+          class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white"
+        >
+          <i class="fas fa-desktop mr-2"></i>
+          Platforms
+        </a>
+      </div>
+
+      <!-- Search and Actions -->
+      <div class="flex items-center">
+        <form action="/" method="GET" class="relative hidden md:block">
+          <input
+            name="q"
+            type="text"
+            placeholder="Search games... "
+            value="<%= typeof q !== 'undefined' ? q : '' %>"
+            class="w-full max-w-64 min-w-32 overflow-hidden rounded-lg bg-gray-700 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none"
+          />
+
+          <button
+            type="submit"
+            class="absolute top-0 right-0 flex h-full rounded-r-lg p-3 text-gray-400 hover:cursor-pointer hover:bg-gray-600"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+
+        <!-- Mobile menu button -->
+        <button
+          class="inline-flex items-center p-2 text-gray-300 hover:cursor-pointer hover:text-white md:hidden"
+          aria-label="Search"
+          title="Search"
+          onclick="toggleMobileMenu()"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-gray-700 bg-gray-800 lg:hidden"
+  >
+    <div class="space-y-1 px-2 pt-2 pb-4 sm:px-4">
+      <a
+        href="/games"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
+      >
+        <i class="fas fa-chess-knight mr-2"></i>
+        Games
+      </a>
+      <a
+        href="/genres"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
+      >
+        <i class="fas fa-tags mr-2"></i>
+        Genres
+      </a>
+      <a
+        href="/platforms"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
+      >
+        <i class="fas fa-desktop mr-2"></i>
+        Platforms
+      </a>
+
+      <form action="/" method="GET" class="relative w-full">
+        <input
+          name="q"
+          type="text"
+          placeholder="Search games..."
+          value="<%= typeof q !== 'undefined' ? q : '' %>"
+          class="w-full overflow-hidden rounded-lg bg-gray-700 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none"
+        />
+
+        <button
+          type="submit"
+          class="absolute top-0 right-0 flex h-full items-center rounded-r-lg p-3 text-gray-400 hover:cursor-pointer hover:bg-gray-600"
+          aria-label="Search"
+          title="Search"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+    menu.classList.toggle("hidden");
+  }
+</script>
