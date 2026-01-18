@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch app",
+    "dev": "node --watch ./src/app",
     "tailwind:watch": "npx tailwindcss -i ./src/styles/tailwind.css -o ./public/css/style.css --watch --minify"
   },
   "repository": {

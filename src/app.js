@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
+import { fileURLToPath } from "url";
+import path from "path";
 import { errorHandler } from "./middlewares/errorHandler.js";
 dotenv.config();
-PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
 const app = express();
 
