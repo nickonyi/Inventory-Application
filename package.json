@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch ./src/app",
-    "tailwind:watch": "npx tailwindcss -i ./src/styles/tailwind.css -o ./public/css/style.css --watch --minify",
+    "tailwind:watch": "npx tailwindcss -i ./src/styles/tailwind.css -o ./public/css/style.css --watch ",
     "seed": "node ./src/db/seed.js"
   },
   "repository": {

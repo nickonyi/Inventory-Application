@@ -1,5 +1,13 @@
 import { getAllgames, getGamesByQuery } from "../db/query.js";
 
 export const renderIndexPage = async (req, res) => {
-  console.log(req.query.q);
+  const q = typeof req.query.q === "string" ? req.query.q.trim() : "";
+
+  if (q) {
+    const games = await getGamesByQuery(q);
+    res.render("searchResults", { games, q });
+  } else {
+    const games = await getAllgames();
+    res.render("index", { games, q });
+  }
 };
