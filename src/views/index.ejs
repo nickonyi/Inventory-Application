@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('partials/header')%>
-  <body class="flex min-h-screen flex-col bg-sky-400 text-white">
+  <body class="flex min-h-screen flex-col bg-gray-700 text-white">
     <%- include('partials/nav')%>
-    <h1>Hello to the world!</h1>
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-emerald-900 to-teal-800 py-16">
+      <div class="mx-auto w-full max-w-[1366px] flex-grow px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="mb-4 text-4xl font-bold md:text-6xl">Your Game Library</h1>
+          <p class="mb-8 text-xl text-gray-300">
+            All your games, perfectly organized
+          </p>
+
+          <a
+            href="/games/new"
+            class="inline-flex items-center rounded-lg bg-sky-400 px-6 py-3 font-bold text-white transition duration-300 hover:bg-sky-700"
+          >
+            <i class="fas fa-plus mr-2"></i>
+            Add New Game
+          </a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

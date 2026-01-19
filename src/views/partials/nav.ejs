@@ -1,28 +1,31 @@
-<nav class="sticky top-0 z-50 border-b border-gray-700 bg-gray-800">
+<nav
+  class="sticky top-0 z-50 border-b border-gray-700 bg-emerald-600 text-white"
+>
   <div class="mx-auto w-full max-w-[1366px] px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 max-h-32 items-center justify-between gap-6">
       <!-- Logo -->
       <div class="flex items-center">
         <a href="/" class="flex items-center space-x-2">
-          <i class="fas fa-dice text-2xl"></i>
+          <i class="fas fa-gamepad text-2xl"></i>
           <span class="text-xl font-bold text-white">Games&nbsp;Inventory</span>
         </a>
       </div>
 
       <!-- Navigation Links -->
-      <div class="hidden items-center md:flex lg:gap-4">
+      <div class="hidden items-center md:flex lg:gap-4 text-white">
         <a
           href="/games"
           class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white"
         >
-          <i class="fas fa-chess-knight mr-2"></i>
+          <i class="fas fa-bolt mr-2"></i>
           Games
         </a>
         <a
           href="/genres"
           class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white"
         >
-          <i class="fas fa-tags mr-2"></i>
+          <i class="fas fa-scroll mr-2"></i>
+
           Genres
         </a>
         <a
@@ -42,7 +45,7 @@
             type="text"
             placeholder="Search games... "
             value="<%= typeof q !== 'undefined' ? q : '' %>"
-            class="w-full max-w-64 min-w-32 overflow-hidden rounded-lg bg-gray-700 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none"
+            class="w-full max-w-64 min-w-32 overflow-hidden rounded-lg bg-white px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none"
           />
 
           <button
