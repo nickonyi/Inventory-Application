@@ -8,6 +8,8 @@ export const renderIndexPage = async (req, res) => {
     res.render("searchResults", { games, q });
   } else {
     const games = await getAllgames();
+    console.log(games);
+
     res.render("index", { games, q });
   }
 };

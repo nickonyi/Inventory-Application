@@ -7,6 +7,7 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 dotenv.config();
 const PORT = process.env.PORT;
 
+
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -18,6 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use("/", indexRouter);
+app.get("/test", (req, res) => {
+  res.send("Static test OK");
+});
 
 app.get("/{*splat}", (req, res) => {
   res.status(404).render("404");

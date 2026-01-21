@@ -22,5 +22,44 @@
         </div>
       </div>
     </div>
+
+     <!-- Main Content -->
+    <main
+      class="mx-auto w-full max-w-[1366px] flex-grow px-4 py-8 sm:px-6 lg:px-8"
+    >
+      <!-- Featured Game -->
+      <% if (games.length > 0) { %>
+      <div class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold text-gray-100">Featured Game</h2>
+        <div class="overflow-hidden rounded-lg bg-gray-800 shadow-2xl">
+          <div class="md:flex">
+            <a href="/games/<%= games[0].game_id %>" class="md:w-1/2">
+              <div class="bg-black p-8">
+                <img
+                  src="<%= games[0].image %>"
+                  alt="<%= games[0].title %>"
+                  class="h-64 w-full object-contain md:h-96"
+                />
+              </div>
+            </a>
+
+            <div class="p-8 md:w-1/2">
+              <h3 class="mb-4 text-3xl font-bold text-white">
+                <%= games[0].title %>
+              </h3>
+              <p class="mb-6 text-gray-300">
+                Experience this amazing game in your collection.
+              </p>
+              <a
+                href="/games/<%= games[0].game_id %>"
+                class="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 font-bold text-white transition duration-300 hover:bg-blue-700"
+                >View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </main>
   </body>
 </html>
