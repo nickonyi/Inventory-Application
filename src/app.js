@@ -7,7 +7,6 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 dotenv.config();
 const PORT = process.env.PORT;
 
-
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
