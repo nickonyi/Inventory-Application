@@ -6,7 +6,7 @@
     "developer": "FromSoftware",
     "publisher": "Bandai Namco",
     "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
-    "image": "elden-ring.jpg"
+    "image": "/images/elden-ring.jpg"
   },
   {
     "title": "The Witcher 3",
@@ -15,7 +15,7 @@
     "developer": "CD Projekt Red",
     "publisher": "CD Projekt",
     "platforms": ["PC", "PlayStation 4", "Xbox One"],
-    "image": "witcher-3.jpg"
+    "image": "/images/witcher-3.jpg"
   },
   {
     "title": "God of War",
@@ -24,7 +24,7 @@
     "developer": "Santa Monica Studio",
     "publisher": "Sony Interactive Entertainment",
     "platforms": ["PlayStation 4", "PC"],
-    "image": "god-of-war.jpg"
+    "image": "/images/god-of-war.jpg"
   },
   {
     "title": "Devil May Cry 5",
@@ -33,7 +33,7 @@
     "developer": "Capcom",
     "publisher": "Capcom",
     "platforms": ["PC", "PlayStation 4", "Xbox One"],
-    "image": "dmc5.jpg"
+    "image": "/images/dmc5.jpg"
   },
   {
     "title": "The Legend of Zelda: Breath of the Wild",
@@ -42,7 +42,7 @@
     "developer": "Nintendo",
     "publisher": "Nintendo",
     "platforms": ["Nintendo Switch"],
-    "image": "zelda-botw.jpg"
+    "image": "/images/zelda-botw.jpg"
   },
   {
     "title": "Red Dead Redemption 2",
@@ -51,7 +51,7 @@
     "developer": "Rockstar Games",
     "publisher": "Rockstar Games",
     "platforms": ["PC", "PlayStation 4", "Xbox One"],
-    "image": "rdr2.jpg"
+    "image": "/images/rdr2.jpg"
   },
   {
     "title": "Civilization VI",
@@ -60,7 +60,7 @@
     "developer": "Firaxis Games",
     "publisher": "2K",
     "platforms": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
-    "image": "civ6.jpg"
+    "image": "/images/civ6.jpg"
   },
   {
     "title": "StarCraft II",
@@ -69,7 +69,7 @@
     "developer": "Blizzard Entertainment",
     "publisher": "Blizzard Entertainment",
     "platforms": ["PC"],
-    "image": "starcraft2.jpg"
+    "image": "/images/starcraft2.jpg"
   },
   {
     "title": "The Sims 4",
@@ -78,7 +78,7 @@
     "developer": "Maxis",
     "publisher": "Electronic Arts",
     "platforms": ["PC", "PlayStation 4", "Xbox One"],
-    "image": "sims4.jpg"
+    "image": "/images/sims4.jpg"
   },
   {
     "title": "Microsoft Flight Simulator",
@@ -87,7 +87,7 @@
     "developer": "Asobo Studio",
     "publisher": "Xbox Game Studios",
     "platforms": ["PC", "Xbox Series X"],
-    "image": "flight-simulator.jpg"
+    "image": "/images/flight-simulator.jpg"
   },
   {
     "title": "FC 26",
@@ -96,7 +96,7 @@
     "developer": "EA Sports",
     "publisher": "Electronic Arts",
     "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
-    "image": "fc-26.jpg"
+    "image": "/images/fc-26.jpg"
   },
   {
     "title": "NBA 2K24",
@@ -105,7 +105,7 @@
     "developer": "Visual Concepts",
     "publisher": "2K",
     "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
-    "image": "nba2k24.jpg"
+    "image": "/images/nba2k24.jpg"
   },
   {
     "title": "Forza Horizon 5",
@@ -114,7 +114,7 @@
     "developer": "Playground Games",
     "publisher": "Xbox Game Studios",
     "platforms": ["PC", "Xbox Series X"],
-    "image": "forza5.jpg"
+    "image": "/images/forza5.jpg"
   },
   {
     "title": "Gran Turismo 7",
@@ -123,7 +123,7 @@
     "developer": "Polyphony Digital",
     "publisher": "Sony Interactive Entertainment",
     "platforms": ["PlayStation 5"],
-    "image": "gt7.jpg"
+    "image": "/images/gt7.jpg"
   },
   {
     "title": "Portal 2",
@@ -132,7 +132,7 @@
     "developer": "Valve",
     "publisher": "Valve",
     "platforms": ["PC", "PlayStation 3", "Xbox 360"],
-    "image": "portal2.jpg"
+    "image": "/images/portal2.jpg"
   },
   {
     "title": "Tetris Effect",
@@ -141,7 +141,7 @@
     "developer": "Resonair",
     "publisher": "Enhance",
     "platforms": ["PC", "PlayStation 4", "Xbox One"],
-    "image": "tetris-effect.jpg"
+    "image": "/images/tetris-effect.jpg"
   },
   {
     "title": "Resident Evil 4 Remake",
@@ -150,7 +150,7 @@
     "developer": "Capcom",
     "publisher": "Capcom",
     "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
-    "image": "re4-remake.jpg"
+    "image": "/images/re4-remake.jpg"
   },
   {
     "title": "Silent Hill 2",
@@ -159,7 +159,7 @@
     "developer": "Konami",
     "publisher": "Konami",
     "platforms": ["PlayStation 2"],
-    "image": "silent-hill-2.jpg"
+    "image": "/images/silent-hill-2.jpg"
   },
   {
     "title": "Call of Duty: Modern Warfare II",
@@ -168,7 +168,7 @@
     "developer": "Infinity Ward",
     "publisher": "Activision",
     "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
-    "image": "mw2.jpg"
+    "image": "/images/mw2.jpg"
   },
   {
     "title": "DOOM Eternal",
@@ -177,6 +177,6 @@
     "developer": "id Software",
     "publisher": "Bethesda",
     "platforms": ["PC", "PlayStation 4", "Xbox One"],
-    "image": "doom-eternal.jpg"
+    "image": "/images/doom-eternal.jpg"
   }
 ]
