@@ -90,13 +90,13 @@
     "image": "flight-simulator.jpg"
   },
   {
-    "title": "FIFA 23",
-    "released": 2022,
+    "title": "FC 26",
+    "released": 2025,
     "genre": "Sports",
     "developer": "EA Sports",
     "publisher": "Electronic Arts",
     "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
-    "image": "fifa23.jpg"
+    "image": "fc-26.jpg"
   },
   {
     "title": "NBA 2K24",
