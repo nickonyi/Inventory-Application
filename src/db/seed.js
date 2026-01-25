@@ -5,3 +5,133 @@ import path from "path";
 import url from "url";
 
 dotenv.config();
+const createTables = `
+CREATE TABLE IF NOT EXISTS genres (
+genre_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS developers (
+developer_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS publishers (
+publisher_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS platforms (
+platform_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS games (
+game_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+title VARCHAR(255) NOT NULL UNIQUE,
+released INTEGER,
+genre_id INTEGER REFERENCES genres(genre_id),
+developer_id INTEGER REFERENCES developers(developer_id),
+publisher_id INTEGER REFERENCES publishers(publisher_id),
+image VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS game_platforms (
+game_id INTEGER REFERENCES games(game_id),
+platform_id INTEGER REFERENCES platforms(platform_id),
+PRIMARY KEY(game_id,platform_id)
+);
+`;
+
+const insertData = async (client) => {
+  const data = JSON.parse(
+    fs.readFileSync(
+      path.join(path.dirname(url.fileURLToPath(import.meta.url)), "data.json"),
+      "utf8",
+    ),
+  );
+
+  for (const game of data) {
+    await client.query(
+      "INSERT INTO genres (name) VALUES ($1) ON CONFLICT(name) DO NOTHING",
+      [game.genre],
+    );
+    await client.query(
+      "INSERT INTO developers (name) VALUES ($1) ON CONFLICT(name) DO NOTHING",
+      [game.developer],
+    );
+    await client.query(
+      "INSERT INTO publishers (name) VALUES ($1) ON CONFLICT(name) DO NOTHING",
+      [game.publisher],
+    );
+
+    for (const platform of game.platforms) {
+      await client.query(
+        "INSERT INTO platforms (name) VALUES ($1) ON CONFLICT(name) DO NOTHING",
+        [platform],
+      );
+    }
+
+    const genreResult = await client.query(
+      "SELECT genre_id FROM genres WHERE name =$1",
+      [game.genre],
+    );
+
+    const developerResult = await client.query(
+      "SELECT developer_id FROM developers WHERE name =$1",
+      [game.developer],
+    );
+
+    const publisherResult = await client.query(
+      "SELECT publisher_id FROM publishers WHERE name =$1",
+      [game.publisher],
+    );
+
+    const gameResult = await client.query(
+      "INSERT INTO games (title,released,genre_id,developer_id,publisher_id,image) VALUES ($1,$2,$3,$4,$5,$6) ON CONFLICT (title) DO NOTHING RETURNING game_id",
+      [
+        game.title,
+        game.released,
+        genreResult.rows[0].genre_id,
+        developerResult.rows[0].developer_id,
+        publisherResult.rows[0].publisher_id,
+        game.image,
+      ],
+    );
+
+    if (gameResult.rows.lenght > 0) {
+      const gameId = gameResult.rows[0].game_id;
+      for (const platform of game.platforms) {
+        const platformResults = await client.query(
+          "SELECT platform_id from platforms where name = $1",
+          [platform],
+        );
+        await client.query(
+          "INSERT INTO game_platforms (game_id,platform_id) VALUES ($1,$2) ON CONFLICT DO NOTHING",
+          [gameId, platformResults.rows[0].platform_id],
+        );
+      }
+    }
+  }
+};
+
+const main = async () => {
+  console.log("Connecting...");
+
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+  });
+  await client.connect();
+
+  console.log("creating tables...");
+  await client.query(createTables);
+
+  console.log("inserting data...");
+  await insertData(client);
+
+  await client.end();
+
+  console.log("Seeding done!");
+};
+
+main();
