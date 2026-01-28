@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import path from "path";
 import indexRouter from "./routes/indexRouter.js";
+import gamesRouter from "./routes/gameRouter.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 dotenv.config();
 const PORT = process.env.PORT;
@@ -18,9 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use("/", indexRouter);
-app.get("/test", (req, res) => {
-  res.send("Static test OK");
-});
+app.use("/games", gamesRouter);
 
 app.get("/{*splat}", (req, res) => {
   res.status(404).render("404");

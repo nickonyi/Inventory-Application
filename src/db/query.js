@@ -41,3 +41,5 @@ export const getGamesByQuery = async (q) => {
 
   return result.rows;
 };
+
+export const getGameDetails = async (id) => {};
