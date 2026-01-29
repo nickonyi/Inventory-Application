@@ -42,4 +42,9 @@ export const getGamesByQuery = async (q) => {
   return result.rows;
 };
 
-export const getGameDetails = async (id) => {};
+export const getGameDetails = async (id) => {
+  const result = await db.query(
+    `SELECT games.game_id,games.title,games.released,games.image,games.genre_id as genre,genres.name as genre_name,
+    developers.name as developers,pulishers.name as publiher`,
+  );
+};
