@@ -1,4 +1,4 @@
-import { getAllgames } from "../db/query.js";
+import { getAllgames, getGameDetails } from "../db/query.js";
 
 export const renderGamePage = async (req, res) => {
   const game = await getGameDetails(req.params.id);
@@ -8,7 +8,7 @@ export const renderGamePage = async (req, res) => {
     return;
   }
 
-  res.render("/games.game", { game });
+  res.render("games/game", { game });
 };
 
 export const renderGamesPage = async (req, res) => {

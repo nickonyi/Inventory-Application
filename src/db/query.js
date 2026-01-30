@@ -42,9 +42,20 @@ export const getGamesByQuery = async (q) => {
   return result.rows;
 };
 
-export const getGameDetails = async (id) => {
+export const getGameDetails = async (gameId) => {
   const result = await db.query(
     `SELECT games.game_id,games.title,games.released,games.image,games.genre_id as genre,genres.name as genre_name,
-    developers.name as developers,pulishers.name as publiher`,
+    developers.name as developers,publishers.name as publisher,
+    ARRAY_AGG(platforms.name ORDER BY platforms.name) AS platforms
+    FROM games 
+    LEFT JOIN genres on games.genre_id = genres.genre_id
+    LEFT JOIN developers on games.developer_id = developers.developer_id
+    LEFT JOIN publishers ON  games.publisher_id = publishers.publisher_id
+    LEFT JOIN game_platforms ON games.game_id = game_platforms.game_id
+    LEFT JOIN platforms ON game_platforms.platform_id = platforms.platform_id
+    WHERE games.game_id = $1
+    GROUP BY games.game_id,games.genre_id,genres.name,developers.name,publishers.name`,
+    [gameId],
   );
+  return result.rows[0] ?? null;
 };
