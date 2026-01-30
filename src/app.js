@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import path from "path";
 import indexRouter from "./routes/indexRouter.js";
 import gamesRouter from "./routes/gameRouter.js";
+import genresRouter from "./routes/genresRouter.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 dotenv.config();
 const PORT = process.env.PORT;
@@ -20,6 +21,7 @@ app.use(express.static("public"));
 
 app.use("/", indexRouter);
 app.use("/games", gamesRouter);
+app.use("/genres", genresRouter);
 
 app.get("/{*splat}", (req, res) => {
   res.status(404).render("404");

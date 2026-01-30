@@ -59,3 +59,8 @@ export const getGameDetails = async (gameId) => {
   );
   return result.rows[0] ?? null;
 };
+
+export const getAllGenres = async () => {
+  const result = await db.query("SELECT * FROM genres ORDER BY name");
+  return result.rows;
+};
