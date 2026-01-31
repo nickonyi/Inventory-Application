@@ -8,6 +8,8 @@ export const renderGamePage = async (req, res) => {
     return;
   }
 
+  console.log(game);
+
   res.render("games/game", { game });
 };
 

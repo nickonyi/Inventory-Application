@@ -99,7 +99,7 @@ const insertData = async (client) => {
       ],
     );
 
-    if (gameResult.rows.lenght > 0) {
+    if (gameResult.rows.length > 0) {
       const gameId = gameResult.rows[0].game_id;
       for (const platform of game.platforms) {
         const platformResults = await client.query(
