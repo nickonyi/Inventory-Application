@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/header') %>
+  <body class="flex min-h-screen flex-col bg-gray-900 text-white">
+    <%- include('../partials/nav') %>
+
+    <main
+      class="mx-auto w-full max-w-[1366px] flex-grow px-4 py-8 sm:px-6 lg:px-8"
+    >
+      <!-- Header -->
+      <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="mb-2 text-3xl font-bold text-white">
+            <%= platform.name %>
+          </h1>
+          <p class="text-gray-400">Games for this platform</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="/platforms/<%= platform.platform_id %>/edit"
+            class="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 font-bold text-white transition duration-300 hover:bg-blue-700"
+          >
+            <i class="fas fa-edit mr-2"></i>
+            Edit&nbsp;Platform
+          </a>
+          <form
+            method="POST"
+            action="/platforms/<%= platform.platform_id %>/delete"
+            style="display: inline"
+            onsubmit="return handleDeleteAction(this, 'platform')"
+          >
+            <input
+              type="hidden"
+              name="adminPassword"
+              class="adminPasswordField"
+            />
+            <button
+              type="submit"
+              class="inline-flex items-center rounded-lg bg-red-600 px-6 py-3 font-bold text-white transition duration-300 hover:cursor-pointer hover:bg-red-700"
+            >
+              <i class="fas fa-trash mr-2"></i>
+              Delete&nbsp;Platform
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Games Grid -->
+      <% if (games && games.length > 0) { %>
+      <div
+        class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+      >
+        <% games.forEach(game => { %>
+        <div
+          class="flex transform justify-center overflow-hidden rounded-lg bg-gray-800 shadow-lg transition duration-300 hover:scale-105 hover:shadow-2xl"
+        >
+          <a href="/games/<%= game.game_id %>" class="flex flex-col gap-3 p-3">
+            <% if (game.image !== null) { %>
+            <img src="<%= game.image %>" alt="<%= game.title %>" class="h-48 object-contain opacity-0 transition-opacity duration-0"
+                onload="this.classList.remove('opacity-0')"" />
+            <% } else { %>
+            <div
+              class="m-auto flex min-h-48 w-full flex-1 items-center justify-center bg-gray-900"
+            >
+              <i class="fas fa-image text-4xl text-gray-600"></i>
+            </div>
+            <% } %>
+
+            <div>
+              <h2
+                class="text-center text-sm font-semibold text-white transition duration-300"
+              >
+                <%= game.title %>
+              </h2>
+              <p class="mt-1 text-center text-xs text-gray-400">
+                <%= game.released %> • <%= game.genre || 'Undefined genre' %>
+              </p>
+            </div>
+          </a>
+        </div>
+        <% }) %>
+      </div>
+      <% } else { %>
+      <div class="py-16 text-center">
+        <i class="fas fa-chess-knight mb-4 text-6xl text-gray-600"></i>
+        <h2 class="mb-2 text-xl font-semibold text-gray-400">
+          No games found for this platform
+        </h2>
+        <p class="mb-6 text-gray-500">Add some games to see them here!</p>
+      </div>
+      <% } %>
+
+      <div class="mt-8"><%- include('../partials/goBack') %></div>
+    </main>
+
+    <script src="/admin.js"></script>
+    <%- include('../partials/footer') %> <%-
+    include('../partials/passwordModal') %>
+  </body>
+</html>
