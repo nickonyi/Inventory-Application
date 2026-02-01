@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import path from "path";
 import indexRouter from "./routes/indexRouter.js";
-import gamesRouter from "./routes/gameRouter.js";
+import gamesRouter from "./routes/gamesRouter.js";
 import genresRouter from "./routes/genresRouter.js";
 import platformsRouter from "./routes/platformsRouter.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
