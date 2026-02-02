@@ -145,3 +145,20 @@ export const getGamesByPlatform = async (platformId) => {
   );
   return result.rows;
 };
+
+export const postNewGame = async (title, released, genreId, platformsId) => {
+  const results = await db.query(
+    `INSERT INTO games (title,released,genre_id) values ($1,$2,$3) returning game_id`,
+    [title, released, genreId],
+  );
+  const gameId = results.rows[0].game_id;
+
+  for (const platformId of platformsId) {
+    if (platformId) {
+      await db.query(
+        "INSERT INTO game_platforms(game_id,platform_id) VALUES($1,$2)",
+        [gameId, platformId],
+      );
+    }
+  }
+};
