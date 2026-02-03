@@ -162,3 +162,7 @@ export const postNewGame = async (title, released, genreId, platformsId) => {
     }
   }
 };
+
+export const postNewGenres = async (name) => {
+  return await db.query("INSERT INTO genres(name) VALUES ($1)", [name]);
+};

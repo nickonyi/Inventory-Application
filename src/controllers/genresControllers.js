@@ -1,4 +1,9 @@
-import { getAllGenres, getGenreById, getGamesByGenre } from "../db/query.js";
+import {
+  getAllGenres,
+  getGenreById,
+  getGamesByGenre,
+  postNewGenres,
+} from "../db/query.js";
 import { validationResult } from "express-validator";
 
 export const renderGenresPage = async (req, res) => {
@@ -38,4 +43,6 @@ export const submitNewGenre = async (req, res) => {
     });
     return;
   }
+  await postNewGenres(req.body.name);
+  res.redirect("/genres");
 };
