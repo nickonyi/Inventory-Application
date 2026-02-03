@@ -1,4 +1,5 @@
 import { getAllGenres, getGenreById, getGamesByGenre } from "../db/query.js";
+import { validationResult } from "express-validator";
 
 export const renderGenresPage = async (req, res) => {
   const genres = await getAllGenres();
@@ -16,4 +17,25 @@ export const renderGamesByGenre = async (req, res) => {
 
   const games = await getGamesByGenre(req.params.id);
   res.render("genres/genre", { games, genre });
+};
+
+export const renderNewGenreForm = (req, res) => {
+  console.log("the form call");
+
+  res.render("genres/newGenreForm", { genre: { name: "" } });
+};
+
+export const submitNewGenre = async (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    res.render("genres/newGenreForm", {
+      errors: errors.array(),
+      genre: {
+        genre: { name: req.body.name },
+        name: req.body.name,
+      },
+    });
+    return;
+  }
 };
