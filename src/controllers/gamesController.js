@@ -59,3 +59,16 @@ export const submitNewGame = async (req, res) => {
     res.redirect("/");
   }
 };
+
+export const renderEditGameForm = async (req, res) => {
+  const game = await getAllgames();
+
+  if (!game) {
+    res.status(404).render("404");
+    return;
+  }
+
+  const genres = await getAllGenres();
+  const platforms = await getAllPlatforms();
+  res.render("games/gameEditForm", { game, genres, platforms });
+};
