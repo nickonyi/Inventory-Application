@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/header') %>
+  <body class="flex min-h-screen flex-col bg-gray-900 text-white">
+    <%- include('../partials/nav') %>
+
+    <main class="mx-auto w-full max-w-[1366px] flex-grow px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl">
+        <div class="mb-8">
+          <h1 class="mb-2 text-3xl font-bold text-white">Edit Game</h1>
+          <p class="text-gray-400">Update game information</p>
+        </div>
+
+        <div class="rounded-lg bg-gray-800 p-6 shadow-lg">
+          <form action="/games/<%= game.game_id %>/edit" method="post" onsubmit="return handleEditAction(this)" class="space-y-6">
+            <%- include('../partials/showError') %>
+
+            <div>
+              <label for="title" class="mb-2 block text-sm font-medium text-gray-300">
+                Title
+              </label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value="<%= typeof title !== 'undefined' ? title : game.title %>"
+                required
+                class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter game title"
+              />
+            </div>
+
+            <div>
+              <label for="released" class="mb-2 block text-sm font-medium text-gray-300">
+                Release Year
+              </label>
+              <input
+                type="number"
+                id="released"
+                name="released"
+                value="<%= typeof released !== 'undefined' ? released : game.released %>"
+                required
+                class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter release year"
+              />
+            </div>
+
+            <div>
+              <label for="genre" class="mb-2 block text-sm font-medium text-gray-300">
+                Genre
+              </label>
+              <select name="genre" id="genre" class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-white focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNiA2TDExIDEiIHN0cm9rZT0iIzlDQTNBRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+')] bg-no-repeat bg-[right_1rem_center]">
+                <option value="" disabled>
+                  Select genre
+                </option>
+                <% genres.forEach(genreItem => { %>
+                  <option
+                    value="<%= genreItem.genre_id %>"
+                    <%= (typeof genre !== 'undefined' ? genre == genreItem.genre_id : game.genre === genreItem.genre_id) ? 'selected' : '' %>
+                  >
+                    <%= genreItem.name %>
+                  </option>
+                <% }); %>
+              </select>
+            </div>
+
+            <div>
+              <label class="mb-3 block text-sm font-medium text-gray-300">
+                Platforms
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <% platforms.forEach(platform => { %>
+                  <label class="flex items-center space-x-3 rounded-lg bg-gray-700 p-3 cursor-pointer hover:bg-gray-600 transition duration-200">
+                    <input
+                      type="checkbox"
+                      name="platforms"
+                      value="<%= platform.platform_id %>"
+                      id="platform-<%= platform.platform_id %>"
+                      <%= (typeof selectedPlatforms !== 'undefined' ? (Array.isArray(selectedPlatforms) ? selectedPlatforms.includes(platform.platform_id.toString()) : selectedPlatforms == platform.platform_id) : (game.platforms && game.platforms.includes(platform.name))) ? 'checked' : '' %>
+                      class="rounded border-gray-500 bg-gray-600 text-blue-600 focus:ring-blue-500"
+                    >
+                    <span class="text-sm text-gray-300"><%= platform.name %></span>
+                  </label>
+                <% }); %>
+              </div>
+            </div>
+
+            <input type="hidden" name="adminPassword" id="adminPasswordField" />
+            
+            <div class="flex gap-3">
+              <button
+                type="submit"
+                class="flex-1 rounded-lg bg-green-600 px-6 py-3 font-bold text-white transition duration-300 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 hover:cursor-pointer"
+              >
+                <i class="fas fa-save mr-2"></i>
+                Update Game
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="mt-6">
+          <%- include('../partials/goBack') %>
+        </div>
+      </div>
+    </main>
+    
+    <script src="/admin.js"></script>
+    <%- include('../partials/footer') %> 
+    <%- include('../partials/passwordModal') %>
+  </body>
+</html>

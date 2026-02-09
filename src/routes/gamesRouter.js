@@ -17,5 +17,6 @@ gamesRouter.get("/:id", validateId, renderGamePage);
 gamesRouter.get("/:id/edit", validateId, renderEditGameForm);
 
 gamesRouter.post("/new", validateGame, submitNewGame);
+gamesRouter.post("/:id")
 
 export default gamesRouter;
