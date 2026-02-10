@@ -170,3 +170,27 @@ export const postNewGenres = async (name) => {
 export const postNewPlatform = async (name) => {
   return await db.query("INSERT INTO platforms(name) VALUES ($1)", [name]);
 };
+
+export const updateGameDetails = async (
+  title,
+  released,
+  genreId,
+  platformIds,
+  gameId,
+) => {
+  await db.query(
+    `UPDATE games SET title=$1,released=$2,genre_id=$3 WHERE game_id =$4`,
+    [title, released, genreId, gameId],
+  );
+
+  await db.query(`DELETE FROM game_platforms WHERE game_id = $1`, [gameId]);
+
+  for (const platformId of platformIds) {
+    if (platformId) {
+      await db.query(
+        "INSERT INTO game_platforms (game_id,platform_id) VALUES($1,$2)",
+        [gameId, platformId],
+      );
+    }
+  }
+};

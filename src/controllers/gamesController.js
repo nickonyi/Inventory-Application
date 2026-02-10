@@ -4,6 +4,7 @@ import {
   getAllPlatforms,
   getGameDetails,
   postNewGame,
+  updateGameDetails,
 } from "../db/query.js";
 import { validationResult } from "express-validator";
 
@@ -71,4 +72,32 @@ export const renderEditGameForm = async (req, res) => {
   const genres = await getAllGenres();
   const platforms = await getAllPlatforms();
   res.render("games/gameEditForm", { game, genres, platforms });
+};
+
+export const changeGameDetails = async (req, res) => {
+  const errors = validationResult(req);
+  console.log("Holla my guy");
+
+  if (!errors.isEmpty()) {
+    const genres = await getAllGenres();
+    const platforms = await getAllPlatforms();
+    const { genre, platforms: selectedPlatforms, released, title } = req.body;
+
+    res.status(400).render("games/gameEditForm", {
+      errors: errors.array(),
+      game: { game_id: req.params.id },
+      genre,
+      genres,
+      platforms,
+      released,
+      selectedPlatforms,
+      title,
+    });
+  } else {
+    const { genre, platforms, released, title } = req.body;
+    const platformsArray = Array.isArray(platforms) ? platforms : [platforms];
+    const gameId = req.params.id;
+    await updateGameDetails(title, released, genre, platformsArray, gameId);
+    res.redirect("/");
+  }
 };
