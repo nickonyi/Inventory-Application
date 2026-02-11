@@ -62,7 +62,7 @@ export const submitNewGame = async (req, res) => {
 };
 
 export const renderEditGameForm = async (req, res) => {
-  const game = await getAllgames();
+  const game = await getGameDetails(req.params.id);
 
   if (!game) {
     res.status(404).render("404");
