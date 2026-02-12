@@ -16,8 +16,6 @@ export const renderGamePage = async (req, res) => {
     return;
   }
 
-  console.log(game);
-
   res.render("games/game", { game });
 };
 
@@ -41,7 +39,6 @@ export const submitNewGame = async (req, res) => {
     const genres = await getAllGenres();
     const platforms = await getAllPlatforms();
     const { genre, platforms: selectedPlatforms, released, title } = req.body;
-    console.log(req.body);
 
     res.status(400).render("games/newGameForm", {
       errors: errors.array(),
@@ -76,7 +73,7 @@ export const renderEditGameForm = async (req, res) => {
 
 export const changeGameDetails = async (req, res) => {
   const errors = validationResult(req);
-  console.log("Holla my guy");
+  console.log(req.body);
 
   if (!errors.isEmpty()) {
     const genres = await getAllGenres();
