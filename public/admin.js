@@ -30,7 +30,7 @@ const openAdminModal = (form, selector, options = {}) => {
     confirmBtn.textContent = options.confirmText || "Confirm";
     if ((options.confirmText || "").toLowerCase() === "delete") {
       confirmBtn.classList.remove("bg-blue-600");
-      confirmBtn.classList.add("bg-red-600");
+      confirmBtn.classList.add("bg-red-6000");
       confirmBtn.classList.add("hover:bg-red-700");
       confirmBtn.classList.remove("hover:bg-blue-700");
     } else {
