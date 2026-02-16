@@ -73,7 +73,6 @@ export const renderEditGameForm = async (req, res) => {
 
 export const changeGameDetails = async (req, res) => {
   const errors = validationResult(req);
-  console.log(req.body);
 
   if (!errors.isEmpty()) {
     const genres = await getAllGenres();

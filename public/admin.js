@@ -53,7 +53,43 @@ const handleEditAction = (form) => {
   return false;
 };
 
-const closeAdminModal = () => {};
+const closeAdminModal = () => {
+  const modal = document.getElementById("admin-password-modal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  pendingForm = null;
+  pendingSelector = null;
+  pendingAction = null;
+  pendingMessage = "";
+  const confirmBtn = document.getElementById("adminPasswordConfirm");
+  if (confirmBtn) {
+    confirmBtn.textContent = "Confirm";
+    confirmBtn.classList.remove("bg-red-600", "hover:bg-red-700");
+    confirmBtn.classList.add("bg-blue-600", "hover:bg-blue-700");
+  }
+};
+const confirmAdminModal = () => {
+  const input = document.getElementById("adminPasswordInput");
+  const error = document.getElementById("adminPasswordError");
+  const password = input && input.value ? input.value.trim() : "";
+  if (!password) {
+    if (error) {
+      error.textContent = "password field cannot  be empty";
+    }
+    return;
+  }
+
+  if (pendingForm && pendingSelector) {
+    const field = pendingForm.querySelector(pendingSelector);
+
+    if (field) {
+      field.value = password;
+    }
+    const formToSubmit = pendingForm;
+    closeAdminModal();
+    formToSubmit.submit();
+  }
+};
 
 // Wire modal buttons and keyboard interactions after DOM loads
 if (typeof document !== "undefined") {
