@@ -1,4 +1,5 @@
 import {
+  deleteGame,
   getAllgames,
   getAllGenres,
   getAllPlatforms,
@@ -96,4 +97,9 @@ export const changeGameDetails = async (req, res) => {
     await updateGameDetails(title, released, genre, platformsArray, gameId);
     res.redirect("/");
   }
+};
+
+export const removeGame = async (req, res) => {
+  await deleteGame(req.params.id);
+  res.redirect("/");
 };

@@ -194,3 +194,8 @@ export const updateGameDetails = async (
     }
   }
 };
+
+export const deleteGame = async (gameId) => {
+  await db.query(`DELETE FROM game_platforms WHERE game_id = $1`, [gameId]);
+  return await db.query(`DELETE FROM games WHERE game_id =$1`, [gameId]);
+};

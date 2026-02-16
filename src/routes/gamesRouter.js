@@ -6,6 +6,7 @@ import {
   submitNewGame,
   renderEditGameForm,
   changeGameDetails,
+  removeGame,
 } from "../controllers/gamesController.js";
 import { validateId } from "../middlewares/validateId.js";
 import { validateGame } from "../middlewares/validator.js";
@@ -26,5 +27,6 @@ gamesRouter.post(
   validateGame,
   changeGameDetails,
 );
+gamesRouter.post("/:id/delete", verifyAdminPassword, validateId, removeGame);
 
 export default gamesRouter;
