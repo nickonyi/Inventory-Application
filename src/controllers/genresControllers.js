@@ -46,3 +46,13 @@ export const submitNewGenre = async (req, res) => {
   await postNewGenres(req.body.name);
   res.redirect("/genres");
 };
+
+export const renderEditGenreForm = async (req, res) => {
+  const genre = await getGenreById(req.params.id);
+
+  if (!genre) {
+    res.status(404).render("404");
+    return;
+  }
+  res.render("genres/genreEditForm", { genre });
+};
