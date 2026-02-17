@@ -199,3 +199,33 @@ export const deleteGame = async (gameId) => {
   await db.query(`DELETE FROM game_platforms WHERE game_id = $1`, [gameId]);
   return await db.query(`DELETE FROM games WHERE game_id =$1`, [gameId]);
 };
+
+export const updateGenreName = async (genreId, newGenreName) => {
+  return await db.query("UPDATE genres SET name =$1 WHERE genre_id =$2", [
+    newGenreName,
+    genreId,
+  ]);
+};
+
+export const updatePlatformName = async (platformId, newPlatformName) => {
+  return await db.query(
+    "UPDATE platforms SET name  = $1 WHERE platform_id = $2",
+    [newPlatformName, platformId],
+  );
+};
+
+export const deleteGenre = async (genreId) => {
+  await db.query("UPDATE games SET genre_id = null WHERE genre_id = $1", [
+    genreId,
+  ]);
+  return await db.query("DELETE from genres WHERE genre_id =$1", [genreId]);
+};
+
+export const deletePlatform = async (platformId) => {
+  await db.query("DELETE from game_platforms WHERE platform_id = $1", [
+    platformId,
+  ]);
+  return await db.query("DELETE from platforms WHERE platform_id =$1", [
+    platformId,
+  ]);
+};

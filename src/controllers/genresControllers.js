@@ -3,6 +3,8 @@ import {
   getGenreById,
   getGamesByGenre,
   postNewGenres,
+  updateGenreName,
+  deleteGenre,
 } from "../db/query.js";
 import { validationResult } from "express-validator";
 
@@ -55,4 +57,27 @@ export const renderEditGenreForm = async (req, res) => {
     return;
   }
   res.render("genres/genreEditForm", { genre });
+};
+
+export const changeGenreName = async (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const genre = await getGenreById(req.params.id);
+    res.render("genres/genreEditForm", {
+      errors: errors.array(),
+      genre: { genre, name: req.body.name },
+    });
+    return;
+  }
+  const genreId = req.params.id;
+  const newGenreName = req.body.name;
+  await updateGenreName(genreId, newGenreName);
+  res.redirect("/genres");
+};
+
+export const removeGenre = async (req, res) => {
+  const genreId = req.params.id;
+  await deleteGenre(genreId);
+  res.redirect("/genres");
 };
