@@ -1,4 +1,4 @@
-import { Client } from "pg";
+import pkg from "pg";
 import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
@@ -117,9 +117,10 @@ const insertData = async (client) => {
 
 const main = async () => {
   console.log("Connecting...");
-
+  const { Client } = pkg;
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
   });
   await client.connect();
 
